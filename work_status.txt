@@ -26,7 +26,44 @@ var contactData = {
 // Udit & Vasudev
 
 
-----------------  VARIFICATION -->
+----------------  VERIFICATION -->
+possible input parameter for verification algorithm
+ 
+ 1) Smaoke
+ 
+ 2) Stopped after accident
+ 
+ 3) Backward force (impulse) without applying reverse gear
+ 
+ 4) Vehicle roll over
+ 
+ 5) Initial change in position of sensor
+ 
+ 6) Person awareness (eye lid open or upright positon)
+ 
+ 7) change in overall resistence or capacitance of vehicle after accident
+ 
+ 
+ 
+ ----------------  HARDWARE UPDATE-->
+ MC60 pinout internal architecture
+ 
+ compiler and ide setup
+ 
+ flashing software setup
+ 
+ program MC60 using ftdi
+ 
+ interfacing with adxl435
+ 
+ I2C and SPI comm
+ 
+ power supply calculations
+ 
+ logic level calculation of MC60 for diff ext voltages 
+ 
+ 
+ 
 
 
 
