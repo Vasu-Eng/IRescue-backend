@@ -21,9 +21,7 @@ app.use(express.static("public"));
 const alertData = {
   device_id: "",
   location: {
-    lat: 22.7284907
-    , lon: 75.8729906
-
+    lat : 23.8479, lon : 78.6645
   },
   svr_level: ""
 }
@@ -54,23 +52,19 @@ person_2: {
 
 
 
-
-
-
-
 //get method 
 app.get("/", (req, res) => {
   res.send(" server is  running " + res.statusCode);
-  NearbySearch(alertData.location, 50000, "police");
+  NearbySearch(alertData.location, "hospital");
 });
 
 
 //custom functions
 
-function NearbySearch(location, radius, type) {
+function NearbySearch(location,keyword) {
   var config = {
     method: 'get',
-    url: url(nearby_link, location, radius, api_key, type, "cruise"),
+    url: url(nearby_link, location, api_key,keyword,"distance"),
     headers: {}
   };
   console.log(config.url);
@@ -84,12 +78,15 @@ function NearbySearch(location, radius, type) {
     });
 }
 // url generator 
-function url(link, location, radius, api_key, type, keyword) {
-  const url = link + "location=" + location.lat + "," + location.lon + "&radius=" + radius + "&type=" + type + "&keyword=" + keyword + "&key=" + api_key;
+function url(link, location, api_key, keyword,rankby) {
+  const url = link + "location=" + location.lat + "," + location.lon  + "&keyword=" + keyword + "&key=" + api_key + "&rankby=" + rankby;
   return url;
 }
 
-
+// In developing stage 
+function sortListPlace(){ 
+  // use the google response.data and sort the data according the function input parameter 
+}
 
 
 

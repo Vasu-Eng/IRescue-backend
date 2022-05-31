@@ -52,3 +52,13 @@ var contactData = {
                                     ---------------->Create Another webpage for custumer dashboard for the authantication ----
         
 
+
+
+
+
+
+// places lobrary links 
+//Sagar - Vasu's home location 
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.8479,78.6645&keyword=hospital&key=AIzaSyCGqgG3GaA_6a1ZUp_EV0Ak0l5ReMxUCq0&rankby=distance
+//Indore Vallabh nagar 
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=22.7284907,75.8729906&keyword=hospital&key=AIzaSyCGqgG3GaA_6a1ZUp_EV0Ak0l5ReMxUCq0&rankby=distance
