@@ -1,0 +1,105 @@
+//DATA available in server
+
+var alertData = { device_id : "", lat : "" , lon : "" , svr_level: ""}
+var contactData = { 
+                    device_id : "",
+		    person_1 : {
+				contact_no : ["num1"],
+				email_id   : "",
+				relation_  : ""
+                               },
+		    person_2 : {
+				contact_no : ["num1","num2"],
+				email_id   : "",
+				relation_  : ""
+				},
+                    person_3 : {
+				contact_no : ["num1","num2","num3"],
+				email_id   : "",
+				relation_  : ""
+				} 
+ 		 }
+
+
+
+------------------------------------------------------------------------------ HARDWARE CHALLENGE  --------------------------------------------------------------------------
+// Udit & Vasudev
+
+
+----------------  VARIFICATION -->
+
+
+
+
+
+
+
+
+
+
+
+
+----------------- TRANSMISSION -->
+
+
+
+
+
+
+
+
+
+
+
+//---------------------------------------------------------------------------- SOFTWARE CHALLENGES ( PREOCESSING ) -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Vidit , Samarth , Vasudev & some interns ( if required )
+
+
+
+
+                                                               	CHALLENGE 1 ( Achieved !!) #Vasudev 
+
+                                    -----------INPUT- alertData( in json format )------------------------------
+
+  1) getting  the data in desired JSON format 
+  2) send the data using post method to the google server using places library API (acccording the  places library JOSN data structure key-value pair using docs) 
+  3) create the Search_nearBy algorithm ( or copy the reliable code from the internet or google searchNeaby places library docs )
+  4) alogorithm return the list/arry of the nearBy hospitals.
+                              ----------- OUTPUT- list/arry of nearby hospitals in json objects ----------------------->
+
+  #Vasudev Currently working :- developing the shortlistPlace() function to shortlist the place given by the places library using appropriate parameters
+                                                            
+                                                                CHALLENGE 2 
+                                                          
+                                      ------------- INPUT- shortlisted place in json objects of nearby hospital -----------------------
+  1) using the 
+                                      ------------- OUTPUT- contacts No of all listed hospitals  ---------------
+
+
+
+                                                    // Vidit & Samarth & their interns
+
+                                                                CHALLENGE 3 ( consulte by Harsh )
+                                         
+                                     --------------INPUT- contactData(in json format )-------------------------------
+                                     --------------OUTPUT- data has been listed in DB  and also accessable when required also have relationship between contactData & alertData 
+
+                                                                  CHALLENGE 4  
+
+                                    ---------------->Create  A webpage for form ( which is scalable for future website ) & post the form data to server ------
+                                    ---------------->Create Another webpage for custumer dashboard for the authantication ----
+        
+
+
+
+
+
+
+
+
+
+// places lobrary links ( analytic refrence for making the sorListPlaces function  ) 
+//Sagar - Vasudev's home location 
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=23.8479,78.6645&keyword=hospital&key=AIzaSyCGqgG3GaA_6a1ZUp_EV0Ak0l5ReMxUCq0&rankby=distance
+//Indore Vallabh nagar 
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=22.7284907,75.8729906&keyword=hospital&key=AIzaSyCGqgG3GaA_6a1ZUp_EV0Ak0l5ReMxUCq0&rankby=distance

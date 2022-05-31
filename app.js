@@ -84,7 +84,7 @@ function url(link, location, api_key, keyword,rankby) {
 }
 
 // In developing stage 
-function sortListPlace(){ 
+function shortListPlaces(){ 
   // use the google response.data and sort the data according the function input parameter 
 }
 
