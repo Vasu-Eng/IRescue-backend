@@ -21,7 +21,6 @@ var contactData = {
  		 }
 
 
-
 ------------------------------------------------------------------------------ HARDWARE CHALLENGE  --------------------------------------------------------------------------
 // Udit & Vasudev
 
@@ -72,8 +71,28 @@ var contactData = {
                                                                 CHALLENGE 2 
                                                           
                                       ------------- INPUT- shortlisted place in json objects of nearby hospital -----------------------
-  1) using the 
-                                      ------------- OUTPUT- contacts No of all listed hospitals  ---------------
+ Remaining task :- 
+ 1) start developing  the shortlist function()   #research is also required for accuracy  
+ 2) apply the same algorithm to the police station also -( select the nearest 3 save it in the json obeject called nearByPolice ) 
+ 3) create a JSON object ->
+ var  precessedDATA ={
+   nearByHospital : [
+     {
+       name : "",
+       location : ""
+       address : "",
+       rating : "",
+       contact:"",
+       open_hrs : ""
+     }
+     ,{}
+     ,{}
+   ]
+   nearByPolice : [
+     {name:"",contact:"",address:"",location:""},{},{}
+   ]
+  }                      
+                                      ------------- OUTPUT- contacts No of all listed hospitals ( Achieved !) ---------------
 
 
 
