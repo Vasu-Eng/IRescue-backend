@@ -24,6 +24,6 @@
     "nodemon": "^2.0.16"
   }
   "scripts": {
-  "start": "app.js"
+  "start": "node app.js"
 }
 }
