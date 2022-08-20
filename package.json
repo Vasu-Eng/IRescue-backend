@@ -4,7 +4,8 @@
   "description": "This is the backend part of IRescue  protocol ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +27,4 @@
     "nodemon": "^2.0.16",
     "twilio": "^3.80.1"
   }
-  "scripts": {
-<<<<<<< HEAD
-  "start": "node server.js"
-=======
-  "start": "node src/app.js"
->>>>>>> dev
-}
 }
