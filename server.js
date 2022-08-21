@@ -75,7 +75,8 @@ let parameters = {
 
 //get method 
  app.get("/", (req, res) => {
-  res.send(" server is  running " + res.statusCode);
+  //res.send(" server is  running " + res.statusCode);
+  res.sendFile(__dirname +"/index.html");
   process();
 });
 
@@ -151,7 +152,7 @@ function placesAPIResponseHandle(nearbysearch) {
       //  Place_id =  ResposeData.results[0].place_id
       // console.log("place_id :"+ Place_id);
       // console.log("Places API for nearby "+ nearbysearch + " : " + config.url );
-	  console.log("ResposeData from google places library  : ");
+	   console.log("ResposeData from google places library  : ");
       console.log(ResposeData);
       //console.log(config.url);
       place_details(ResposeData,3);
