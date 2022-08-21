@@ -75,8 +75,7 @@ let parameters = {
 
 //get method 
  app.get("/", (req, res) => {
-  //res.send(" server is  running " + res.statusCode);
-  res.sendFile(__dirname +"/index.html");
+  res.send(" server is  running " + res.statusCode);
   process();
 });
 
