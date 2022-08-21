@@ -1,7 +1,7 @@
 {
   "name": "irescue",
   "version": "1.0.0",
-  "description": "This is the backend part of IRescue  protocol ",
+  "description": "This is the backend part of IRescsue  protocol ",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
