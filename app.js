@@ -76,7 +76,7 @@ let parameters = {
 //get method 
  app.get("/", (req, res) => {
   res.send(" server is  running " + res.statusCode);
-  //process();
+  process();
 });
 
 
