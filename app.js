@@ -173,6 +173,6 @@ function shortListPlaces() {
 }
 
 app.listen(8080, () => {
-  console.log("server is starting at port 3000");
+  console.log("server is starting at port 8080");
 });
 //------------------------------- END --------------------------
