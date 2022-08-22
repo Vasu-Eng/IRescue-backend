@@ -172,7 +172,7 @@ function shortListPlaces() {
   // use the google response.data and sort the data according the function input parameter 
 }
 
-app.listen(3000, () => {
+app.listen(8080, () => {
   console.log("server is starting at port 3000");
 });
 //------------------------------- END --------------------------
