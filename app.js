@@ -120,9 +120,10 @@ parameters = {
       console.log(alertData);
       console.log("parameters : ");
       console.log( parameters);
-console.log("sending massage : ");	  
-var msg=alertData;
-// var msg = " Alert accident is detected in lat : " + alertData.location.lat + " , long : " + alertData.location.lon + " . please call the ambulance !!"
+console.log("sending massage : ");	 
+var link="https://maps.google.com/?q="+alertData.location.lat +","+alertData.location.lon;
+
+var msg = " Alert ❗❗\n\n " +"Location:\n\n"+link+"\n\n"+"Severity:   "+alertData.svr_level+" / 10 \n\n";
 send_sms(msg);
 });
 }
@@ -158,7 +159,7 @@ function placesAPIResponseHandle(nearbysearch) {
       place_details(ResposeData,3);
     })
     .catch(function (error) {
-       console.log(err)
+      console.log(error);
     });
 return 0;
 }
