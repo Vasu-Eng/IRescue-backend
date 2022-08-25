@@ -121,7 +121,8 @@ parameters = {
       console.log("parameters : ");
       console.log( parameters);
 console.log("sending massage : ");	  
-var msg = " Alert accident is detected in lat : " + alertData.location.lat + " , long : " + alertData.location.lon + " . please call the ambulance !!"
+var msg=alertData;
+// var msg = " Alert accident is detected in lat : " + alertData.location.lat + " , long : " + alertData.location.lon + " . please call the ambulance !!"
 send_sms(msg);
 });
 }
@@ -157,7 +158,7 @@ function placesAPIResponseHandle(nearbysearch) {
       place_details(ResposeData,3);
     })
     .catch(function (error) {
-      console.log(error);
+       console.log(err)
     });
 return 0;
 }
