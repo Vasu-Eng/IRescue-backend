@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const fetch = require('node-fetch');
  const ck = require('ckey'); 
+const { response } = require("express");
  const api_key = ck.API_KEY; 
  const contact_no = ck.PHONE_NO; 
  const accountSid = ck.TWILIO_ACCOUNT_SID;
@@ -14,9 +15,11 @@ const fetch = require('node-fetch');
 const nearby_link = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
 const details_link = "https://maps.googleapis.com/maps/api/place/details/json?";
 const  thingspeak_url = "https://api.thingspeak.com/channels/1819879/feeds.json?results=1";
-var ResposeData; // places library response obeject 
+var ResponseData; // places library response obeject 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+
 
 //sagar-  (my home)        lat : 23.8479, lon : 78.6645
 //indore- vallabh nagar    lat : 22.7284907 ,  lon : 75.8729906
@@ -115,19 +118,44 @@ parameters = {
   rankby: "distance",
   fields: "name,formatted_phone_number,rating"
 }
- placesAPIResponseHandle("hospital");
+var hospitals = placesAPIResponseHandle("hospital");    // Json for nearby hospitals
+var pcs= placesAPIResponseHandle("police");           // Json for nearby police stations
+
+var datah,datapc;
+
+
+hospitals.then(data=>{
+  datah=data;
+  console.log("hospitals :");
+      console.log(data.results[0].name);
+    
+})
+pcs.then(data=>{
+  datapc=data;
+  // var link="https://maps.google.com/?q="+alertData.location.lat +","+alertData.location.lon;
+  // var msg = "\n\n   Alert ❗❗\n\n " +"Location:\n\n"+generateMAPLink(alertData.location.lat,alertData.location.lon)+"\n\n"+"Severity:   "+alertData.svr_level+" / 10 \n\n";
+   var msg = "\n\n   Alert ❗❗\n\n " +"Location:\n\n"+generateMAPLink(alertData.location.lat,alertData.location.lon)+"\n\n"+"Severity:   "+alertData.svr_level+" / 10 \n\n"+"Nearby Hospitals:  \n\n"+datah.results[0].name+"\n "+generateMAPLink( datah.results[0].geometry.location.lat, datah.results[0].geometry.location.lng)+"\n\n"+datah.results[1].name+"\n "+generateMAPLink( datah.results[1].geometry.location.lat, datah.results[1].geometry.location.lng)+"\n\n"+datah.results[2].name+"\n "+generateMAPLink( datah.results[2].geometry.location.lat, datah.results[2].geometry.location.lng)+"\n\n"+"Nearby Police stations:  \n\n"+datapc.results[0].name+"\n "+generateMAPLink( datapc.results[0].geometry.location.lat, datapc.results[0].geometry.location.lng)+"\n\n"+datapc.results[1].name+"\n "+generateMAPLink( datapc.results[1].geometry.location.lat, datapc.results[1].geometry.location.lng)+"\n\n"+datapc.results[2].name+"\n "+generateMAPLink( datapc.results[2].geometry.location.lat, datapc.results[2].geometry.location.lng)+"\n\n";
+send_sms(msg);
+//latitude path: results[0].geometry.location.lat
+})
+
       console.log("alertData : ");
       console.log(alertData);
       console.log("parameters : ");
       console.log( parameters);
 console.log("sending massage : ");	 
-var link="https://maps.google.com/?q="+alertData.location.lat +","+alertData.location.lon;
 
-var msg = " Alert ❗❗\n\n " +"Location:\n\n"+link+"\n\n"+"Severity:   "+alertData.svr_level+" / 10 \n\n";
-send_sms(msg);
+
+
+//send_sms(msg);
 });
 }
 
+
+function generateMAPLink(lat,long)
+{
+  return "https://maps.google.com/?q="+lat+","+long;
+}
 
 function URL(link, key, parameters, keyword, Place_id) {
   var url = link + "key=" + key + "&location=" + parameters.location.lat + "," + parameters.location.lon;
@@ -140,29 +168,37 @@ function URL(link, key, parameters, keyword, Place_id) {
   return url;
 }  
 
-function placesAPIResponseHandle(nearbysearch) {
+ async function placesAPIResponseHandle(nearbysearch) {
+  var Response ;
   var config = {
     method: 'get',
     url:URL(nearby_link,api_key,parameters,nearbysearch,"null"),
     headers: {}
   };
-  axios(config)
-    .then(function (response) {
-      ResposeData = response.data ;
+ await axios(config)
+    .then( function (response) {
+      ResponseData =  response.data ;
       // console.log("statusCode : " + ResposeData.status);
       //  Place_id =  ResposeData.results[0].place_id
       // console.log("place_id :"+ Place_id);
       // console.log("Places API for nearby "+ nearbysearch + " : " + config.url );
-	   console.log("ResposeData from google places library  : ");
-      console.log(ResposeData);
+	  //  console.log("ResposeData from google places library  : ");
+    //   console.log(ResposeData);
       //console.log(config.url);
-      place_details(ResposeData,3);
+      //place_details(ResposeData,3);
+      // console.log(URL(nearby_link,api_key,parameters,nearbysearch,"null"));
+      // console.log(URL(nearby_link,api_key,parameters,"police","null"));
+      Response = ResponseData;
+      console.log('heheh');
+      console.log(typeof(ResponseData));
     })
     .catch(function (error) {
       console.log(error);
-    });
-return 0;
+    });  
+
+    return Response;
 }
+
 function place_details(responseData,num) {
   for(var i=0; i<num ;i++){
   var Place_id = responseData.results[i].place_id;
@@ -174,7 +210,7 @@ function shortListPlaces() {
   // use the google response.data and sort the data according the function input parameter 
 }
 
-app.listen( ck.PORT ||8080 , () => {
+app.listen( ck.PORT ||9000 , () => {
   console.log("server is starting at port 8080");
 });
 //------------------------------- END --------------------------
