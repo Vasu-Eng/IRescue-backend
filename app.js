@@ -130,6 +130,7 @@ hospitals.then(data=>{
       console.log(data.results[0].name);
     
 })
+
 pcs.then(data=>{
   datapc=data;
   // var link="https://maps.google.com/?q="+alertData.location.lat +","+alertData.location.lon;
@@ -147,7 +148,6 @@ console.log("sending massage : ");
 
 
 
-//send_sms(msg);
 });
 }
 
