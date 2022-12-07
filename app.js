@@ -135,14 +135,10 @@ pcs.then(data=>{
   datapc=data;
   // var link="https://maps.google.com/?q="+alertData.location.lat +","+alertData.location.lon;
   // var msg = "\n\n   Alert ❗❗\n\n " +"Location:\n\n"+generateMAPLink(alertData.location.lat,alertData.location.lon)+"\n\n"+"Severity:   "+alertData.svr_level+" / 10 \n\n";
-<<<<<<< HEAD
-   var msg = "\n\n   Alert ❗❗\n\n " +"Location:\n\n"+generateMAPLink(alertData.location.lat,alertData.location.lon)+"\n\n"+"Severity:   "+alertData.svr_level
-   //+" / 10 \n\n"+"Nearby Hospitals:  \n\n"+datah.results[0].name+"\n "+generateMAPLink( datah.results[0].geometry.location.lat, datah.results[0].geometry.location.lng)+"\n\n"+datah.results[1].name+"\n "+generateMAPLink( datah.results[1].geometry.location.lat, datah.results[1].geometry.location.lng)+"\n\n"+datah.results[2].name+"\n "+generateMAPLink( datah.results[2].geometry.location.lat, datah.results[2].geometry.location.lng)+"\n\n"+"Nearby Police stations:  \n\n"+datapc.results[0].name+"\n "+generateMAPLink( datapc.results[0].geometry.location.lat, datapc.results[0].geometry.location.lng)+"\n\n"+datapc.results[1].name+"\n "+generateMAPLink( datapc.results[1].geometry.location.lat, datapc.results[1].geometry.location.lng)+"\n\n"+datapc.results[2].name+"\n "+generateMAPLink( datapc.results[2].geometry.location.lat, datapc.results[2].geometry.location.lng)+"\n\n";
-=======
+
    var msg = "\n\n   Alert ❗❗\n\n " +"Location:\n\n"+generateMAPLink(alertData.location.lat,alertData.location.lon)+"\n\n"+"Severity:   "+alertData.svr_level+" / 10 \n\n"
   //   +"Nearby Hospitals:  \n\n"+datah.results[0].name+"\n "
    //+generateMAPLink( datah.results[0].geometry.location.lat, datah.results[0].geometry.location.lng)+"\n\n"+datah.results[1].name+"\n "+generateMAPLink( datah.results[1].geometry.location.lat, datah.results[1].geometry.location.lng)+"\n\n"+datah.results[2].name+"\n "+generateMAPLink( datah.results[2].geometry.location.lat, datah.results[2].geometry.location.lng)+"\n\n"+"Nearby Police stations:  \n\n"+datapc.results[0].name+"\n "+generateMAPLink( datapc.results[0].geometry.location.lat, datapc.results[0].geometry.location.lng)+"\n\n"+datapc.results[1].name+"\n "+generateMAPLink( datapc.results[1].geometry.location.lat, datapc.results[1].geometry.location.lng)+"\n\n"+datapc.results[2].name+"\n "+generateMAPLink( datapc.results[2].geometry.location.lat, datapc.results[2].geometry.location.lng)+"\n\n";
->>>>>>> 0024e45e383ac937258be512b3aab7298b0236e8
 send_sms(msg);
 //latitude path: results[0].geometry.location.lat
 })
